@@ -6,14 +6,20 @@ public class TicTacToe {
     this.board = new String[3][3];
   }
 
+  public boolean checkWinner() {
+    return false;
+  }
+
   public String[][] getBoard() {
     return this.board;
   }
 
   public String[][] placeMarker(int row, int column) {
-    String marker = (this.lastPlayer == 1) ? 'x' : 'o';
+    String marker = (this.lastPlayer == 1) ? "x" : "o";
     if(validatePlacement(row, column)) {
       this.board[row][column] = marker;
+      // switch lastPlayer
+      this.lastPlayer = (this.lastPlayer == 1) ? 2 : 1;
     }
     return board;
   }
